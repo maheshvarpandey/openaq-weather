@@ -27,13 +27,11 @@ function App() {
       request(`/weather?q=${inputData.city1}&appid=${process.env.REACT_APP_API_KEY}`, {
         method: 'get',
       }).then(res => {
-        console.log("resp11", res);
         setDetails1(res)
       });
       request(`/weather?q=${inputData.city2}&appid=${process.env.REACT_APP_API_KEY}`, {
         method: 'get',
       }).then(res => {
-        console.log("resp12", res);
         setDetails2(res)
       });
     }
