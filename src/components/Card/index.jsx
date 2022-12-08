@@ -1,3 +1,4 @@
+import moment from 'moment/moment'
 import React from 'react'
 import { Card, Header, List } from 'semantic-ui-react'
 
@@ -12,7 +13,7 @@ const CardDescription =({details})=> {
                 return (
                     <>
                         <List.Item key={index}>
-                            Last Updated <strong>{item.lastUpdated}</strong>
+                            Last Updated <strong>{moment(item.lastUpdated).format('LLLL')}</strong>
                         </List.Item>
                         <List.Item key={index}>
                             Parameter: <strong>{item.parameter}</strong>
@@ -23,11 +24,6 @@ const CardDescription =({details})=> {
                     </>
                 )
             })}
-                    {/* <Card.Description key={index}>
-                        Last Updated <strong>{item.lastUpdated}</strong>
-                        <p>Parameter: <strong>{item.parameter}</strong></p>
-                        <p>Unit: <strong>{item.unit}</strong></p>
-                    </Card.Description> */}
             </List>
         </div>
     )
