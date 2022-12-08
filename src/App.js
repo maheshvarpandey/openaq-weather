@@ -13,7 +13,6 @@ function App() {
   const [details2, setDetails2] = useState([]) 
 
   const changeHandler = (e) => {
-    console.log("city", e.target.name, e.target.value);
     const { name, value } = e.target;
     setInputData({
       ...inputData,
