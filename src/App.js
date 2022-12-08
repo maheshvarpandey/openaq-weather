@@ -28,12 +28,16 @@ function App() {
         method: 'get',
       }).then(res => {
         setDetails1(res)
+      }).catch((err)=> {
+        alert(`err: ${JSON.stringify(err)}`)
       });
       request(`/weather?q=${inputData.city2}&appid=${process.env.REACT_APP_API_KEY}`, {
         method: 'get',
       }).then(res => {
         setDetails2(res)
-      });
+      }).catch((err)=> {
+        alert(`err: ${JSON.stringify(err)}`)
+      });;
     }
 
   }
