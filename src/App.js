@@ -24,14 +24,14 @@ function App() {
 
   const getDetails = () => {
     if (inputData.city1 !== "" && inputData.city2 !== "") {
-      request(`/weather?q=${inputData.city1}&appid=${process.env.REACT_APP_API_KEY}`, {
+      request(`/weather?q=${inputData.city1}&appid=${process.env.REACT_APP_API_KEY || '88ab08f5401304a21eae8f59c36b4682'}`, {
         method: 'get',
       }).then(res => {
         setDetails1(res)
       }).catch((err)=> {
         alert(`err: ${JSON.stringify(err)}`)
       });
-      request(`/weather?q=${inputData.city2}&appid=${process.env.REACT_APP_API_KEY}`, {
+      request(`/weather?q=${inputData.city2}&appid=${process.env.REACT_APP_API_KEY || '88ab08f5401304a21eae8f59c36b4682'}`, {
         method: 'get',
       }).then(res => {
         setDetails2(res)
@@ -68,10 +68,10 @@ function App() {
           <Grid>
             <Grid.Row columns={2}>
               <Grid.Column>
-                <CardIndex data={details1} />
+              {details1 && <CardIndex data={details1} />}
               </Grid.Column>
               <Grid.Column>
-                <CardIndex data={details2} />
+               {details2 && <CardIndex data={details2} />}
               </Grid.Column>
             </Grid.Row>
           </Grid>
