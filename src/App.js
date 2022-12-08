@@ -38,6 +38,8 @@ function App() {
       }).catch((err)=> {
         alert(`err: ${JSON.stringify(err)}`)
       });;
+    } else {
+      alert('Both city required for comparison !!')
     }
 
   }
