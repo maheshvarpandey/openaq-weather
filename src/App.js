@@ -11,8 +11,8 @@ function App() {
   })
   const [details1, setDetails1] = useState() 
   const [details2, setDetails2] = useState() 
+  const [error, setError] = useState() 
 
-  const appKey = '';
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -27,16 +27,30 @@ function App() {
       request(`/weather?q=${inputData.city1}&appid=${process.env.REACT_APP_API_KEY || '88ab08f5401304a21eae8f59c36b4682'}`, {
         method: 'get',
       }).then(res => {
-        setDetails1(res)
+        if(res.cod === 401) {
+          setError({
+            err1: res.message,
+            err2: ''
+          })
+        } else {
+          setDetails1(res)
+        }
       }).catch((err)=> {
-        alert(`err: ${JSON.stringify(err)}`)
+        setError(err?.message)
       });
       request(`/weather?q=${inputData.city2}&appid=${process.env.REACT_APP_API_KEY || '88ab08f5401304a21eae8f59c36b4682'}`, {
         method: 'get',
       }).then(res => {
-        setDetails2(res)
+        if(res.cod === 401) {
+          setError({
+            err1: '',
+            err2: res.message
+          })
+        } else {
+          setDetails2(res)
+        }
       }).catch((err)=> {
-        alert(`err: ${JSON.stringify(err)}`)
+        setError( err?.message)
       });;
     } else {
       alert('Both city required for comparison !!')
@@ -44,6 +58,7 @@ function App() {
 
   }
 
+  console.log("error :::", error);
   return (
     <div className="App">
       <Container textAlign='center' style={{marginBottom: '60px'}}>
@@ -64,6 +79,7 @@ function App() {
         </Form>
       </Container>
       <Header as='h2'>AQ Results</Header>
+      <span style={{color: 'red'}}>{error}</span>
         <Container textAlign='left'>
           <Grid>
             <Grid.Row columns={2}>
