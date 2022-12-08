@@ -9,8 +9,10 @@ function App() {
     city1: "",
     city2: ""
   })
-  const [details1, setDetails1] = useState([]) 
-  const [details2, setDetails2] = useState([]) 
+  const [details1, setDetails1] = useState() 
+  const [details2, setDetails2] = useState() 
+
+  const appKey = '';
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -22,17 +24,17 @@ function App() {
 
   const getDetails = () => {
     if (inputData.city1 !== "" && inputData.city2 !== "") {
-      request(`/v2/latest/${inputData.city1}`, {
+      request(`/weather?q=${inputData.city1}&appid=${process.env.REACT_APP_API_KEY}`, {
         method: 'get',
       }).then(res => {
         console.log("resp11", res);
-        setDetails1(res.results)
+        setDetails1(res)
       });
-      request(`/v2/latest/${inputData.city2}`, {
+      request(`/weather?q=${inputData.city2}&appid=${process.env.REACT_APP_API_KEY}`, {
         method: 'get',
       }).then(res => {
         console.log("resp12", res);
-        setDetails2(res.results)
+        setDetails2(res)
       });
     }
 
