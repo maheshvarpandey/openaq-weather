@@ -28,12 +28,10 @@ function App() {
         method: 'get',
       }).then(res => {
         if(res.cod === 401) {
-          setError({
-            err1: res.message,
-            err2: ''
-          })
+          setError(res?.message)
         } else {
           setDetails1(res)
+          setError('')
         }
       }).catch((err)=> {
         setError(err?.message)
@@ -42,12 +40,10 @@ function App() {
         method: 'get',
       }).then(res => {
         if(res.cod === 401) {
-          setError({
-            err1: '',
-            err2: res.message
-          })
+          setError(res?.message)
         } else {
           setDetails2(res)
+          setError('')
         }
       }).catch((err)=> {
         setError( err?.message)
