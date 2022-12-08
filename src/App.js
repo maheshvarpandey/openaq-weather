@@ -1,5 +1,5 @@
 import './App.css';
-import { Container, Form, Grid, Header } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Icon } from 'semantic-ui-react';
 import { useState } from 'react';
 import request from './api/request';
 import CardIndex from './components/Card';
@@ -40,6 +40,12 @@ function App() {
 
   return (
     <div className="App">
+      <Container textAlign='center' style={{marginBottom: '60px'}}>
+        <Header as='h2' textAlign='center'>
+          <Icon name='plug' />
+          <Header.Content>OpenAQ Weather</Header.Content>
+        </Header>
+      </Container>
       <Container textAlign='left'>
         <Form>
           <Form.Group widths='equal'>
@@ -52,18 +58,18 @@ function App() {
         </Form>
       </Container>
       <Header as='h2'>AQ Results</Header>
-      <Container textAlign='left'>
-        <Grid>
-          <Grid.Row columns={2}>
-            <Grid.Column>
-              <CardIndex data={details1} />
-            </Grid.Column>
-            <Grid.Column>
-              <CardIndex data={details2} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
+        <Container textAlign='left'>
+          <Grid>
+            <Grid.Row columns={2}>
+              <Grid.Column>
+                <CardIndex data={details1} />
+              </Grid.Column>
+              <Grid.Column>
+                <CardIndex data={details2} />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
     </div>
   );
 }
