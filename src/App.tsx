@@ -57,8 +57,34 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="App">
+    <div className="">
+      <div className='wrapper'>
+        <div className='leftMenu'>
+            <h2 className='menuLogo'>Ur Adventure</h2>
+            <ul className='menuList'>
+              <li className='menuItem'>
+                First Item
+              </li>
+              <li className='menuItem'>
+                Second Item
+              </li>
+              <li className='menuItem'>
+                Third Item
+              </li>
+            </ul>
+        </div>
+        <div className='rightMenu'>
+            <div className='topHeader'>
+                <div className='leftTopMenu'>
+                    Dashboard
+                </div>
+                <div className='rightTopMenu'>
+                    Profile
+                </div>
+            </div>
+        </div>
+      </div>
+      {/* <div className="App">
       <Container textAlign='center' style={{marginBottom: '60px'}}>
         <Header as='h2' textAlign='center'>
           <Icon name='plug' />
@@ -90,7 +116,7 @@ function App() {
             </Grid.Row>
           </Grid>
         </Container>
-    </div>
+      </div> */}
     </div>
   );
 }

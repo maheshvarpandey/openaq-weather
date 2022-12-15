@@ -37,3 +37,83 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* sidemenu styles */
+.wrapper {
+  display: flex
+}
+.leftMenu {
+  width: 25%;
+  background: grey;
+  height: 100vh;
+}
+.rightMenu {
+  width: 75%;
+}
+.menuLogo {
+  padding: 20px 10px 20px 5px;
+  border-bottom: 1px solid blue;
+  text-align: center;
+  font-size: 27px;
+  font-weight: bold;
+}
+.menuList {
+  list-style: none;
+  padding-left: 0px;
+}
+.menuItem {
+  padding: 10px 10px 10px 40px;
+  font-size: 16px;
+}
+.menuItem:hover {
+  padding: 10px 10px 10px 40px;
+  font-size: 16px;
+  background: white;
+  cursor: pointer;
+}
+/* topHeader menu */
+.topHeader {
+  display: flex;
+  justify-content: space-between;
+  background: grey;
+  padding: 20px 20px 20px 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* media query */
+/* desktop */
+@media only screen and (min-width: 1024px) and (max-width: 1199px){
+
+}
+
+/* ipad portrait */
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+
+}
+
+/* mobile to ipad */
+@media only screen and (min-width: 480px) and (max-width: 767px){
+  .leftMenu {
+    width: 25%;
+    background: grey;
+    height: 100vh;
+    display: none;
+  }
+  .rightMenu {
+    width: 100%;
+  }
+}
+/* mobile */
+@media only screen and (min-width: 0px) and (max-width: 479px){
+  .leftMenu {
+    width: 25%;
+    background: grey;
+    height: 100vh;
+    display: none;
+  }
+  .rightMenu {
+    width: 100%;
+  }
+}
